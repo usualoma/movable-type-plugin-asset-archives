@@ -1,0 +1,11 @@
+config.yaml
+lib/AssetArchives.pm
+lib/AssetArchives/Asset.pm
+lib/AssetArchives/Asset/Audio.pm
+lib/AssetArchives/Asset/File.pm
+lib/AssetArchives/Asset/Image.pm
+lib/AssetArchives/Asset/Video.pm
+lib/AssetArchives/L10N.pm
+lib/AssetArchives/L10N/en_us.pm
+lib/AssetArchives/L10N/ja.pm
+LICENSE

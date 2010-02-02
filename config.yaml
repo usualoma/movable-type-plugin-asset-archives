@@ -1,0 +1,34 @@
+id: AssetArchives
+name: AssetArchives
+version: 0.1.0
+
+#about this plugin
+description: <__trans phrase="Archive Type for Assets">
+author_name: <__trans phrase="toi-planning">
+author_link: http://tec.toi-planning.net/
+plugin_link: http://tec.toi-planning.net/mt/assetarchives/
+doc_link: http://tec.toi-planning.net/mt/assetarchives/manual
+
+#Localization
+l10n_class: AssetArchives::L10N
+
+# object types
+schema_version: 0.1
+object_types:
+    fileinfo:
+        asset_id:
+            type: integer
+            not_null: 0
+
+archive_types:
+    File:  AssetArchives::Asset::File
+    Image: AssetArchives::Asset::Image
+    Audio: AssetArchives::Asset::Audio
+    Video: AssetArchives::Asset::Video
+
+callbacks:
+    MT::App::CMS::init_request: $AssetArchives::AssetArchives::init_request
+    MT::Asset::post_save: $AssetArchives::AssetArchives::asset_post_save
+    MT::Asset::Image::post_save: $AssetArchives::AssetArchives::asset_post_save
+    MT::Asset::Audio::post_save: $AssetArchives::AssetArchives::asset_post_save
+    MT::Asset::Video::post_save: $AssetArchives::AssetArchives::asset_post_save
