@@ -165,6 +165,14 @@ sub asset_post_save {
 	my $blog = $obj->blog
 		or return;
 
+	require Encode;
+	foreach my $k ('label', 'url', 'description') {
+		my $s = $obj->$k;
+		if (! Encode::is_utf8($s)) {
+			$obj->$k(Encode::decode('utf8', $s));
+		}
+	}
+
 	require MT::Util;
 	my $res = MT::Util::start_background_task(
 		sub {
